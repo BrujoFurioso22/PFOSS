@@ -32,7 +32,16 @@ export const idUsuario = (req, res) => {
   const q = `SELECT idestudiantes FROM estudiantes WHERE correo = '${correo}'`;
   db.query(q, (err, data) => {
     if (err) return res.json(err);
-    return res.json(data);
+    if (data.length > 0) {
+      return res.json(data);
+    } else {
+      // Si no encuentra por correo, busca por cédula.
+      q = `SELECT idestudiantes FROM estudiantes WHERE cedula = '${cedula}'`;
+      db.query(q, (err, data) => {
+        if (err) return res.json(err);
+        return res.json(data);
+      });
+    }
   });
 };
 
