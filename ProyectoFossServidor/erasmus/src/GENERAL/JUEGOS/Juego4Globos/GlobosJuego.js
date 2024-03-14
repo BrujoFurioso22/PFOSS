@@ -562,7 +562,7 @@ export const GlobosJuego = () => {
 
   useEffect(() => {
     if (generando === 1) {
-      DecirTexto("Elije las imagenes que sean iguales a la imagen que se encuentra en el centro. Tienes 3 intentos",500)
+      DecirTexto("Elije las imágenes que sean iguales a la imagen que se encuentra en el centro. Tienes 3 intentos",500)
       DecirTexto(`${correcto.nombreimagen} es el correcto`,500)
       // Retardo inicial de 3 segundos
       const initialDelay = setTimeout(() => {
